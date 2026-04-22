@@ -1,92 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .containt{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 25px;
-            width: 90%;
-            margin: 40px auto;
-        }
-        .bloc{
-            border: 2px solid black;
-            background-color: white;
+        .bloc {
+            border-bottom: 2px solid black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             padding: 10px;
-            border-radius: 12px;
-            max-width: 300px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: white;
         }
-        .bloc img{
-            width:100%;
-            overflow: hidden;
-            height: 400px;
-            object-fit: cover;
+        body{
+            padding-top: 100px;
+            background-color: white;
+        } 
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid black;
+
         }
-        .bloc h2{
-            font-size: 48px;
-        }
-        .bloc p{
-            line-height: 1.7;
-        }
-        @media(max-width:1024px){
-            .containt{
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-        @media(max-width:414px){
-            .containt{
-                grid-template-columns:repeat(1,1fr) ;
-            }
+        .logo img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
         }
 
+        .menu {
+            width: 45%;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+        }      
+        .menu a{
+            text-decoration: none;
+        }
+
+        .petitrectangle {
+            width: 20%;
+            height: 10px;
+          
+            border-radius: 20px;
+
+        }
+        .grandrectangle{
+            border: 2px  solid black;
+            width: 75%;
+            height: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            padding:20px;
+        
+        }
+        .petitrec{
+            border: 2px solid black;
+            width: 20%;
+            height: 15px;
+            border-radius: 12px;
+            margin: 20px auto;
+        }
+        .bloc1{
+            display: grid;
+            gap: 10px;
+            flex-wrap: wrap;
+            grid-template-columns: repeat(4,1fr);
+        }
+        @media(max-width:1024px){
+        .bloc1{
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+        @media(max-width:414px){
+        .bloc1{
+            grid-template-columns: repeat(1,1fr);
+        }
+       }
+        .rectangle{
+            border: 2px solid black;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .bloc2{
+             display: grid;
+             grid-template-columns: repeat(3,1fr);
+            gap: 20px; 
+            justify-content: space-around;
+        }
+        .rectangle1{
+            
+             border: 2px solid black;
+            width: 100%;
+            border-radius: 10px;
+
+        }
+        .bloc3{
+             display: grid;
+             grid-template-columns: repeat(4,1fr);
+            justify-content: space-around;
+            width: 90%;
+            max-width: 100%;
+            gap: 20px;
+            margin: 0 auto;
+        }
+        .rectangle2{
+             border: 2px solid black;
+            width: 100%;
+            height: 90px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+        .grandrectanglebas{
+             border: 2px  solid black;
+            width: 75%;
+            height: 215px;
+            margin: 20px auto;
+            border-radius: 10px;
+            background-color: rgb(84, 84, 174);
+             padding: 15px;
+        }
+        .petitcercle{
+            width: 10%;
+            height: 45px;
+            border-radius: 12px;
+            margin: 0 auto;
+            grid-template-columns: repeat(4,1fr);
+            display: grid;
+        }
+        .petitrec{
+            text-align: center;
+            margin-bottom: 50px;
+            width: 180px;
+            height: 20px;
+        }
+        .petitrec h2{
+            margin-top: -5px;  
+        }
+        .cercle{
+             width: 10px;      
+            height: 10px;
+            border-radius: 50%;
+            border: 2px   solid black;
+            background-color: rgb(191, 191, 223);
+        }
+        .grandrectanglebas1{
+             border: 2px  solid black;
+            width: 75%;
+            height: 50px;
+            margin: 20px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+       .grandrectext{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: auto;
+       }
+       .grandrectext1{
+        width: 50%;
+        height: auto;
+       }
+       .grandrectext1 h1{
+        font-size: 30px;
+        color: darkblue;
+       }
+       .grandrectext1 p{
+        color: #555;
+       }
+       .grandrectext2{
+         width: 50%;
+        height: auto;
+       }
+        .grandrectext2 img{
+        width: 70%;
+        height: 300px;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 50px;
+       }
+       .rectext1{
+        width: 100%;
+       }
+       .rectext1 img{
+        width: 100%;
+        height: 180px;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+       }
+       
+      .rectangle2 h2{
+        margin-top: 5px;
+        color: darkblue;
+      }
+       .bouton{
+       padding: 10px ;
+       border: 30px;
+       border-radius: 15px;
+       margin-top: 20px;
+       }
+       .bouton1{
+        background: rgb(68, 68, 209);
+        color: white;
+        border-radius: 10px;
+        height: 35px;
+        width: 150px;
+        border: none;
+       }
+       .bouton2{
+        background: rgb(243, 229, 229);
+        border-radius: 10px;
+        height: 35px;
+        width: 150px;
+        border: none;
+       }
+       .rectangle h3{
+        padding: 15px;
+        color:darkblue;
+       }
+       .rectangle p{
+        padding: 15px;
+       }
+       .rectext2 h3{
+        color: darkblue;
+        margin: 10px;
+       }
+       .rectext2 p{
+        margin: 10px;
+       }
+       .grandrectanglebas h2{
+        color: white;
+       } 
+       .grandrectanglebas p{
+        color: white;
+        padding: 15px;
+       }
+       .bloc4{
+             display: flex;
+            justify-content: space-around;
+            margin-top: 40px ;
+            text-align: center;    
+       }
+       @media(max-width:1024px){
+        .bloc3{
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+        @media(max-width:414px){
+        .bloc3{
+            grid-template-columns: repeat(1,1fr);    
+        }
+       }
+       .rectangle3{
+         border: 2px solid black;
+            width: 31%;
+            height: 80px;
+            border-radius: 10px;
+            margin-top: -8px;
+       } 
+       .rectangle3 h2{
+        margin-top: -5px;
+        color: darkblue;
+       }
+           @media(max-width:1024px){
+        .bloc2{
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+        @media(max-width:414px){
+        .bloc2{
+            grid-template-columns: repeat(1,1fr);    
+        }
+       }
     </style>
 </head>
+
 <body>
-    <section class="containt">
-        <div class="bloc">
-            <img src="imagephoto.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+    <div class="bloc">
+        <div class="logo">
+            <img src="nf.jpg" alt="">
         </div>
-         <div class="bloc">
-            <img src="free-nature-images.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+        <div class="menu">
+            <div class="petitrectangle">
+                <a href="#">Accueil</a>
+            </div>
+            <div class="petitrectangle">
+                <a href="#">A propos</a>
+            </div>
+            <div class="petitrectangle">
+                <a href="#">Projets</a>
+            </div>
+            <div class="petitrectangle">
+                <a href="#">Profil</a>
+            </div>
+            <div class="petitrectangle">
+                <a href="#">Contact</a>
+            </div>
         </div>
-         <div class="bloc">
-            <img src="imagephoto.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+    </div>
+    <div class="grandrectangle">
+        <div class="grandrectext">
+        <div class="grandrectext1"> 
+        <h1>Construire mon parcours <br> avec passion , créativité et <br> ambition</h1> 
+        <p>Bonjour,je suis Ndeye Fatou Niang,etudiante passionnée par le numérique, <br>l'apprentissage et la création d'interfaces modernes. Je developpe  <br>progressivement mon univers académique et personnel à travers des <br> projets concrets,simples et soignés</p>
+        <div class="bouton">
+            <button class="bouton1">Voir mes projets</button>
+        <button class="bouton2 ">Me Contacter</button>
+        <div class="bloc4">
+    <div class="rectangle3">
+        <h2>5+</h2>
+        <p>Projets réalisés</p>
+    </div>
+    <div class="rectangle3">
+        <h2>100%</h2>
+        <p>Ma vision & progression</p>
+    </div>
+        <div class="rectangle3">
+            <h2>UI</h2>
+            <p>Design & web moderne</p>
         </div>
-         <div class="bloc">
-            <img src="imagerose.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+    </div>
+
         </div>
-         <div class="bloc">
-            <img src="oiseau.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+         </div>
+        <div class="grandrectext2">
+            <div><img src="MOI.jpeg" alt=""></div>
         </div>
-         <div class="bloc">
-            <img src="woman.avif" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+    </div>
+     </div> 
+
+    <div class="petitrec">
+        <h2>A propos de moi</h2>
+    </div>
+    <div class="bloc1">
+        <div class="rectangle"> 
+            <h3>Mon parcours</h3>
+            <p>Je suis une etutudiante curieuse et motivée,avec interet pour les outils <br> numeriques,le web et la communication visuelle. j'aime apprendre en <br> pratiquant,construire de petits projets concrets et m'ameliorer .</p>
         </div>
-         <div class="bloc">
-            <img src="free-nature-images.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+        <div class="rectangle">
+            <h3>Mes objectifs</h3>
+            <p>Mon objectif est de développer un Profil solide ,capable de relier <br> connaissances académiques,créativité personnelle et compétances techniques.Je souhaite batir un portiollo clair ,sérieux et évolutif. <br></p>
         </div>
-         <div class="bloc">
-            <img src="oiseau.jpg" alt="">
-           <h2>une femme</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam quasi, iusto tenetur recusandae qui obcaecati quis porro dolore debitis animi eius. Nam commodi natus veritatis eum maxime! Esse mollitia illum magnam nihil, cupiditate provident ad rem odit modi. Deserunt, et.</p>
+        <div class="rectangle">
+            <h3>Mes qualités</h3>
+            <p>Je suis organisée,persévérente,attentive aux détails et toujours prete à <br> apprendre.j'aime les interfaces bien structués ,les contenus fiables et les <br> réalisations simples mais soignées </p>
         </div>
-        
-    </section>
+        <div class="rectangle">
+            <h3>Ce que je recherche</h3>
+            <p>Je recherche des opportunités d'apprentissage,des collaborations <br> académiques et des expériences qui me de progresser dans le <br> developpement web,et la valorisation de projets personnels.</p>
+        </div>
+    </div>
+     <div class="petitrec">
+        <h2>Mes projets</h2>
+     </div>  
+     <div class="bloc2">
+        <div class="rectangle1">
+            <div class="rectext1">
+                <img src="mon ordi.jpg" alt="">
+            </div>
+            <div class="rectext2">
+                <h3>Mini site vitrine </h3>
+                <p>réalisation d'un site simple,responsive et élégant <br> pour présenter une activité,un service ou une <br> identité personne.lle</p>
+            </div>
+        </div>
+        <div class="rectangle1">
+             <div class="rectext1">
+                <img src="téléchargement.jpg" alt="">
+             </div>
+             <div class="rectext2">
+                <h3>interface web</h3>
+                <p>Conception d'une interface claire avec sections bien <br> organisées,navigation intultive et design moderne.</p>
+             </div>
+        </div>
+        <div class="rectangle1">
+            <div class="rectext1">
+                <img src="javascript.jpeg" alt="">
+            </div>
+            <div class="rectext2">
+                <h3>Projet javascript</h3>
+                <p>Mise en pratique de la logique interactive,de la <br> manipulation du DCM et de fonctionnalités <br> dynamiques utiles.</p>
+            </div>
+        </div>
+        <div class="rectangle1">
+            <div class="rectext1">
+                <img src="téléchargement (1).jpg" alt="">
+            </div>
+            <div class="rectext2">
+                <h3>Travail en groupe</h3>
+                <p>Participation à des exercices colaboratifs pour <br> améliorer l'organisation,la communication et le rendu <br> final.</p>
+            </div>
+        </div>
+         <div class="rectangle1">
+            <div class="rectext1">
+                <img src="femme.jpg" alt="">
+            </div>
+            <div class="rectext2">
+                <h3>Présentation académique</h3>
+                <p>Création de suppotts visuels structurés pour exposer <br> un sujet de façon claire,coherante et professionnelle.</p>
+            </div>
+         </div>
+        <div class="rectangle1">
+            <div class="rectext1">
+                <img src="nous.jpg" alt="">
+            </div>
+            <div class="rectext2">
+                <h3>Apprentissage continu</h3>
+                <p>Exploration reguliére de nouvelles methodes,outils <br> et bonnes pratiques pour ameliorer mes réalisations.</p>
+            </div>
+        </div>
+    </div>
+    <div class="petitrec">
+        <h2>Mon Profil</h2>
+    </div>
+
+     <div class="bloc3">
+        <div class="rectangle2">
+            <h2>2026</h2>
+            <p>Année de progression</p>
+        </div>
+        <div class="rectangle2">
+            <h2>5+</h2>
+            <P>Projets d'apprentissages réalisés</P>
+        </div>
+        <div class="rectangle2">
+            <h2>100%</h2>
+            <P>Motivation pour apprendre et évoluer</P>
+        </div>
+        <div class="rectangle2">
+            <h2>UI</h2>
+            <p>Interet pour le web et le design visuel</p>
+        </div>
+    </div>
+    <div class="grandrectanglebas">
+        <form class="formulaire">
+            <h2>formulaire1</h2>
+            <label for="prenom"></label>
+            <input type="text" placeholder="votre prenom"> <br> <br>
+            <label for="nom"></label>
+            <input type="text" placeholder="votre nom"> <br> <br>
+            <label for="email"></label>
+            <input type="email" placeholder="votre email">
+            <label for="commentaire"></label> <br> <br>
+            <textarea placeholder="votre message"></textarea></textarea> <br> <br> <br>
+        </form>
+        </div>
+    </div>
+
+<div class="petitcercle">
+    <div class="cercle"></div>
+     <div class="cercle"></div>
+      <div class="cercle"></div>
+       <div class="cercle"></div>
+
+    </div>
+     <div class="grandrectanglebas1">
+        <footer>&copy;2026 Ndeye Fatou Niang__ portfolio étudiant/personnel</footer>
+     </div>
 </body>
-</html>
+
+</html>  
