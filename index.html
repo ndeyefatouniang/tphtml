@@ -6,44 +6,336 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .bloc {
-            border-bottom: 2px solid black;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: white;
-        }
-        body{
-            padding-top: 100px;
-            background-color: white;
-        } 
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid black;
+        body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  color: #1f2f49;
+  padding-top: 92px;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a, button, input, textarea, select {
+  font: inherit;
+}
+ 
+.container {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #d9e3f2;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+.header-inner {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+ align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #1f2f49;
+  min-width: 0;
+}
+.logo {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2f5aa8, #6fa4ff);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 10px 18px rgba(47, 90, 168, 0.18);
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+ 
+.brand-text strong {
+  font-size: 16px;
+  color: #183057;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.brand-text span {
+  font-size: 13px;
+  color: #5a6b85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #24324a;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: 0.3s ease;
+}
+ 
+.nav a:hover,
+.nav a:focus-visible {
+  background: #e8f1ff;
+  color: #2f5aa8;
+  outline: none;
+}
+.menu-checkbox {
+  display: none;
+}
+ 
+.menu-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #d9e3f2;
+  border-radius: 14px;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.menu-toggle::before,
+.menu-toggle::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #24324a;
+  border-radius: 999px;
+  transition: 0.3s ease;
+  position: relative;
+}
+ 
+.menu-toggle::before {
+  position: absolute;
+  transform: translateY(-6px);
+}
+ 
+.menu-toggle::after {
+  position: absolute;
+  transform: translateY(6px);  
+}
+.menu-checkbox:checked ~ .menu-toggle span {
+  opacity: 0;
+}
+ 
+.menu-checkbox:checked ~ .menu-toggle::before {
+  transform: rotate(45deg);
+}
+ 
+.menu-checkbox:checked ~ .menu-toggle::after {
+  transform: rotate(-45deg);
+}
+.hero {
+  padding: clamp(24px, 4vw, 40px) 0 clamp(34px, 5vw, 52px);
+}
+.hero-box {
+  min-height: 500px;
+  border: 1px solid #dde7f5;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 34px);
+  padding: clamp(18px, 3vw, 30px);
+  box-shadow: 0 14px 30px rgba(24, 48, 87, 0.08);
+  overflow: hidden;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #edf4ff;
+  border: 1px solid #d6e4fb;
+  color: #2f5aa8;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  max-width: 100%;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  line-height: 1.12;
+  margin-bottom: 18px;
+  color: #183057;
+  max-width: 12ch;
+}
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  color: #5a6b85;
+  max-width: 620px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+ 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+  text-align: center;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #2f5aa8, #79aaff);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(47, 90, 168, 0.2);
+}
+ 
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(47, 90, 168, 0.26);
+  outline: none;
+}
+ 
+.btn-secondary {
+  border-color: #cfe0fa;
+  color: #2b4774;
+  background: #ffffff;
+}
+ 
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: #f3f8ff;
+  outline: none;
+}
 
-        }
-        .logo img{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+ 
+.hero-stat {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e1ebf7;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+ 
+.hero-stat strong {
+  display: block;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  color: #2f5aa8;
+  margin-bottom: 6px;
+}
+ 
+.hero-stat span {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5d6e88;
+}
+.hero-visual {
+  position: relative;
+ min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  aspect-ratio: 47 / 43;
+  border-radius: 28px;
+  overflow: hidden;
+}
+ 
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.floating-card {
+  position: absolute;
+  z-index: 2;
+  max-width: 210px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e2ebf8;
+  border-radius: 18px;
+  padding: 14px 16px;
 
-        .menu {
-            width: 45%;
-            max-width: 100%;
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-        }      
-        .menu a{
-            text-decoration: none;
-        }
+}
+ 
+.floating-card.top {
+  top: 24px;
+  left: 0;
+}
+ 
+.floating-card.bottom {
+  right: 0;
+  bottom: 24px;
+}
+ 
+.floating-card strong {
+  display: block;
+  font-size: 18px;
+  color: #1f3761;
+  margin-bottom: 4px;
+}
+ 
+.floating-card span {
+  font-size: 13px;
+  color: #607089;
+  line-height: 1.5;
+}
+
+
+
+
+
+.menu-toggle span,
+
 
         .petitrectangle {
             width: 20%;
@@ -68,26 +360,38 @@
             border-radius: 12px;
             margin: 20px auto;
         }
-        .bloc1{
+        @media (max-width: 1024px) {
+  .hero-box {
+    grid-template-columns: 1fr;
+  }
+ 
+  .hero-content h1 {
+    max-width: none;
+  }
+ 
+  .hero-visual {
+    min-height: auto;
+    padding-top: 10px;
+  }
+ 
+  .hero-image-wrap {
+    max-width: 100%;
+  }
+}
+              .bloc1{
             display: grid;
-            gap: 10px;
+              grid-template-columns: repeat(2,1fr);
+            gap: 30px;
             flex-wrap: wrap;
-            grid-template-columns: repeat(4,1fr);
+            justify-content: space-around;
+            margin-left: 15px;
         }
-        @media(max-width:1024px){
-        .bloc1{
-            grid-template-columns: repeat(2,1fr);
-        }
-       }
-        @media(max-width:414px){
-        .bloc1{
-            grid-template-columns: repeat(1,1fr);
-        }
-       }
         .rectangle{
             border: 2px solid black;
             width: 100%;
             border-radius: 10px;
+            height: 250px;
+            gap: 20px;
         }
         .bloc2{
              display: grid;
@@ -283,67 +587,113 @@
             grid-template-columns: repeat(1,1fr);    
         }
        }
+        @media(max-width:1024px){
+        .bloc1{
+            grid-template-columns: repeat(2,1fr);
+        }
+       }
+        @media(max-width:414px){
+        .bloc1{
+            grid-template-columns: repeat(1,1fr);    
+        }
+       }
     </style>
 </head>
 
 <body>
-    <div class="bloc">
-        <div class="logo">
-            <img src="nf.jpg" alt="">
-        </div>
-        <div class="menu">
-            <div class="petitrectangle">
-                <a href="#">Accueil</a>
-            </div>
-            <div class="petitrectangle">
-                <a href="#">A propos</a>
-            </div>
-            <div class="petitrectangle">
-                <a href="#">Projets</a>
-            </div>
-            <div class="petitrectangle">
-                <a href="#">Profil</a>
-            </div>
-            <div class="petitrectangle">
-                <a href="#">Contact</a>
-            </div>
-        </div>
-    </div>
-    <div class="grandrectangle">
-        <div class="grandrectext">
-        <div class="grandrectext1"> 
-        <h1>Construire mon parcours <br> avec passion , créativité et <br> ambition</h1> 
-        <p>Bonjour,je suis Ndeye Fatou Niang,etudiante passionnée par le numérique, <br>l'apprentissage et la création d'interfaces modernes. Je developpe  <br>progressivement mon univers académique et personnel à travers des <br> projets concrets,simples et soignés</p>
-        <div class="bouton">
-            <button class="bouton1">Voir mes projets</button>
-        <button class="bouton2 ">Me Contacter</button>
-        <div class="bloc4">
-    <div class="rectangle3">
-        <h2>5+</h2>
-        <p>Projets réalisés</p>
-    </div>
-    <div class="rectangle3">
-        <h2>100%</h2>
-        <p>Ma vision & progression</p>
-    </div>
-        <div class="rectangle3">
-            <h2>UI</h2>
-            <p>Design & web moderne</p>
-        </div>
-    </div>
+    <header class="header">
+  <div class="container header-inner">
+    <a href="#accueil" class="brand">
+      <div class="logo">NF</div>
+      <div class="brand-text">
+        <strong>Ndeye fatou</strong>
+        <span>Portfolio étudiant / personnel</span>
+      </div>
+    </a>
+    <input type="checkbox" id="menuToggle" class="menu-checkbox" />
+    <label for="menuToggle" class="menu-toggle" aria-label="Ouvrir le menu">
+      <span></span>
+    </label>
+    <nav class="nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#profil">Profil</a>
+      <a href="#contact">Contact</a>
+    </nav>
+ 
+  </div>
+</header>
 
-        </div>
-         </div>
-        <div class="grandrectext2">
-            <div><img src="MOI.jpeg" alt=""></div>
-        </div>
-    </div>
-     </div> 
 
-    <div class="petitrec">
-        <h2>A propos de moi</h2>
+<main>
+  <section class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-box">
+ 
+        <div class="hero-content">
+          <div class="hero-badge">Portfolio moderne & évolutif</div>
+ 
+          <h1>Construire mon parcours avec passion, créativité et ambition</h1>
+ 
+          <p>
+            Bonjour, je suis Ndeye Fatou, étudiante passionnée par le numérique,
+            l'apprentissage et la création d'interfaces modernes.
+          </p>
+ 
+          <div class="hero-actions">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+          </div>
+ 
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>5+</strong>
+              <span>Projets réalisés</span>
+            </div>
+            <div class="hero-stat">
+              <strong>100%</strong>
+              <span>Motivation & progression</span>
+            </div>
+            <div class="hero-stat">
+              <strong>UI</strong>
+              <span>Design & web moderne</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="hero-visual">
+          <div class="floating-card top">
+            <strong>Créativité</strong>
+            <span>Idées claires et visuelles</span>
+          </div>
+ 
+          <div class="hero-image-wrap">
+            <img class="hero-image" src="MOI.jpeg" alt="Étudiante" />
+          </div>
+ 
+          <div class="floating-card bottom">
+            <strong>Apprentissage</strong>
+            <span>Évolution continue</span>
+          </div>
+        </div>
+ 
+      </div>
     </div>
-    <div class="bloc1">
+  </section>
+</main>
+<input type="checkbox" id="menuToggle" class="menu-checkbox" />
+<label for="menuToggle" class="menu-toggle">
+  <span></span>
+</label>
+<nav class="nav"> ... </nav>
+
+
+
+     <div class="petitrec">
+        <h2>Mes projets</h2>
+     </div>  
+     <div class="bloc1">
         <div class="rectangle"> 
             <h3>Mon parcours</h3>
             <p>Je suis une etutudiante curieuse et motivée,avec interet pour les outils <br> numeriques,le web et la communication visuelle. j'aime apprendre en <br> pratiquant,construire de petits projets concrets et m'ameliorer .</p>
